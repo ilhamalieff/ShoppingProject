@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from shop import Shop
+from pages.shop import Shop
 from utils.browserUtils import BrowserUtils
 
 class LoginPage(BrowserUtils):

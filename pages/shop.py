@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from checkout_confirmation import CheckoutConfirmation
+from pages.checkout_confirmation import CheckoutConfirmation
 from utils.browserUtils import BrowserUtils
 
 class Shop(BrowserUtils) :

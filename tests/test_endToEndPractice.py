@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from login import LoginPage
+from pages.login import LoginPage
 
 test_data_path = 'data/test_endToEndPractice.json'
 

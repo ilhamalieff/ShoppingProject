@@ -3,13 +3,9 @@ import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.edge.options import Options as EdgeOptions
-from selenium.webdriver.edge.service import Service as EdgeService
 
 
-CHROME_DRIVER_PATH = "C:/Users/Admin/Downloads/chromedriver.exe"
-EDGE_DRIVER_PATH = "C:/Users/Admin/Downloads/msedgedriver.exe"
 driver = None
 
 def pytest_addoption(parser):
@@ -42,15 +38,9 @@ def browserInstance(request):
     browser_name = request.config.getoption("browser_name")
 
     if browser_name == "chrome":
-        driver = webdriver.Chrome(
-            service=ChromeService(executable_path=CHROME_DRIVER_PATH),
-            options=apply_common_options(ChromeOptions()),
-        )
+        driver = webdriver.Chrome(options=apply_common_options(ChromeOptions()),)
     elif browser_name == "microsoft_edge":
-        driver = webdriver.Edge(
-            service=EdgeService(executable_path=EDGE_DRIVER_PATH),
-            options=apply_common_options(EdgeOptions()),
-        )
+        driver = webdriver.Edge(options=apply_common_options(EdgeOptions()))
     else:
         raise ValueError(f"Unsupported browser: {browser_name}")
     driver.get("https://rahulshettyacademy.com/loginpagePractise/")
